@@ -1,0 +1,26 @@
+.chatArea{
+    height: 80vh;
+    width: 80vw;
+     display: flex;
+  flex-direction: column;
+   padding: 30px 5%;
+    /* background-color:red; */
+    gap: 20px;
+    position: relative;
+    overflow-y: auto;
+}
+.chatfield{
+    margin-left: 20px;
+    position: absolute;
+    border-color: aqua;
+    border: 2px solid black; 
+    width: 300px;
+    bottom: 20px;    
+}
+.sendBtn{
+    bottom: 20px; 
+    font-size: 50px;
+    position: absolute; 
+    margin-left: 62%;
+    cursor: pointer;
+}

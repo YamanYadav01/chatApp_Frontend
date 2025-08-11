@@ -1,0 +1,21 @@
+.chat-bubble {
+  padding: 10px;
+  border-radius: 1rem;
+  max-width: 30%;
+  word-break: break-word;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.sender{
+  background-color: #4b5563; /* Tailwind gray-600 */
+  color: white;
+  margin-left: auto;
+ 
+}
+
+.receiver {
+  background-color: #3b82f6; /* Tailwind blue-500 */
+  background-color: #e5e7eb; /* light gray */
+  color: black;
+}
