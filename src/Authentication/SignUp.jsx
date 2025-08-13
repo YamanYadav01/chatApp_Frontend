@@ -35,7 +35,12 @@ function SignUp() {
       password:formData.password
      }
 
-   axios.post(`${API_URL}/user/signup`,userData)
+   axios.post(`${API_URL}/user/signup`,userData,{
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+   })
    .then(res=>{
     if(res.data.message){
       // alert(res.data.message);
