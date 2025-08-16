@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
 
-const socket = io('chat-app-backend-azure-omega.vercel.app');
+const socket = io('https://chatapp-backend-2-s1pn.onrender.com/');
 
 export default socket; 
