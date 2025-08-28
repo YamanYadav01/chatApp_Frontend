@@ -1,4 +1,15 @@
-.main{
-    display: flex;
-    position: fixed;
+.main {
+  display: flex;
+  flex-direction: row;  /* desktop view */
+  height: 100vh;
+  width: 100%;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column; /* stack items vertically on small screens */
+    position: relative;     /* avoid fixed issue */
+    height: auto; 
+  }
 }
