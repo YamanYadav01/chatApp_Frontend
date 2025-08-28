@@ -1,21 +1,40 @@
 .chat-bubble {
   padding: 10px;
   border-radius: 1rem;
-  max-width: 30%;
+  max-width: 80%;              /* wider for mobile */
+  width: fit-content;          /* shrink to text size */
   word-break: break-word;
   margin-bottom: 8px;
   color: white;
+  font-size: 0.95rem;          /* scalable text */
 }
 
-.sender{
-  background-color: #4b5563; /* Tailwind gray-600 */
+/* sender bubble (right side) */
+.sender {
+  background-color: #4b5563;   /* Tailwind gray-600 */
   color: white;
   margin-left: auto;
- 
+  text-align: right;
 }
 
+/* receiver bubble (left side) */
 .receiver {
-  background-color: #3b82f6; /* Tailwind blue-500 */
-  background-color: #e5e7eb; /* light gray */
+  background-color: #e5e7eb;   /* Tailwind gray-200 */
   color: black;
+  margin-right: auto;
+}
+
+/* Responsive tweaks */
+@media (min-width: 640px) {
+  .chat-bubble {
+    max-width: 60%;            /* tablets */
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chat-bubble {
+    max-width: 40%;            /* desktops */
+    font-size: 1rem;
+  }
 }
