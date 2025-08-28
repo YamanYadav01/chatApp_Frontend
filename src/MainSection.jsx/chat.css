@@ -1,71 +1,89 @@
+/* Chat Area Container */
 .chatArea {
-  height: 80vh;
-  width: 90vw;                 /* use % instead of fixed vw */
-  max-width: 1200px;           /* keeps it centered on big screens */
   display: flex;
   flex-direction: column;
-  padding: 20px 5%;
-  gap: 20px;
-  position: relative;
-  overflow-y: auto;
-  margin: auto;                /* center the chat area */
-  background: white;           /* optional */
-  border-radius: 10px;         /* optional */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* optional */
+  height: 100vh;                  /* full height */
+  width: 100%;                    /* take full width */
+  max-width: 1200px;               /* center limit on big screens */
+  margin: auto;                    /* center horizontally */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;                /* avoid double scroll */
 }
 
-/* chat input container */
+/* Messages container */
+.chatMessages {
+  flex: 1;                         /* take all remaining height */
+  padding: 20px;
+  overflow-y: auto;                 /* scroll only here */
+  background: #f9f9f9;
+}
+
+/* Chat Input container */
 .chatInput {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  padding: 12px;
   border-top: 1px solid #ccc;
-  position: sticky;            /* stays at bottom */
+  background: #fff;
+  position: sticky;                /* sticks to bottom */
   bottom: 0;
-  background: white;
+  z-index: 10;
 }
 
-/* input field */
+/* Input field */
 .chatfield {
   flex: 1;
-  border: 2px solid black;
+  border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
   font-size: 1rem;
   outline: none;
 }
 
-/* send button */
+/* Send button */
 .sendBtn {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
-  background: #3b82f6;         /* Tailwind blue-500 */
-  color: white;
+  background: #3b82f6;             /* Tailwind blue */
+  color: #fff;
   border: none;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.2s ease;
 }
 
-/* Responsive adjustments */
+.sendBtn:hover {
+  background: #2563eb;             /* darker blue */
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .chatArea {
-    width: 100vw;              /* full width on mobile */
-    padding: 10px;
+    width: 100%;                  /* full screen width */
+    border-radius: 0;             /* remove rounded edges for mobile */
+    box-shadow: none;
   }
+
+  .chatMessages {
+    padding: 12px;
+  }
+
   .sendBtn {
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
+    font-size: 1.1rem;
+    width: 38px;
+    height: 38px;
   }
 }
 
 @media (min-width: 1024px) {
   .chatArea {
-    width: 70vw;               /* smaller width on desktops */
+    width: 70vw;                  /* centered smaller width on desktops */
   }
 }

@@ -1,40 +1,44 @@
 .chat-bubble {
-  padding: 10px;
+  padding: 10px 14px;
   border-radius: 1rem;
-  max-width: 80%;              /* wider for mobile */
-  width: fit-content;          /* shrink to text size */
+  max-width: 80%;                 /* wide for mobile */
+  width: fit-content;             /* shrink to text size */
   word-break: break-word;
-  margin-bottom: 8px;
-  color: white;
-  font-size: 0.95rem;          /* scalable text */
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* soft shadow */
 }
 
-/* sender bubble (right side) */
+/* Sender bubble (right side) */
 .sender {
-  background-color: #4b5563;   /* Tailwind gray-600 */
-  color: white;
+  background-color: #4b5563;   /* gray-600 */
+  color: #fff;
   margin-left: auto;
-  text-align: right;
+  text-align: left;            /* text left align inside bubble */
+  border-bottom-right-radius: 0.3rem; /* chat-like feel */
 }
 
-/* receiver bubble (left side) */
+/* Receiver bubble (left side) */
 .receiver {
-  background-color: #e5e7eb;   /* Tailwind gray-200 */
-  color: black;
+  background-color: #e5e7eb;   /* gray-200 */
+  color: #000;
   margin-right: auto;
+  text-align: left;
+  border-bottom-left-radius: 0.3rem;
 }
 
 /* Responsive tweaks */
 @media (min-width: 640px) {
   .chat-bubble {
-    max-width: 60%;            /* tablets */
+    max-width: 65%;
     font-size: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
   .chat-bubble {
-    max-width: 40%;            /* desktops */
+    max-width: 45%;
     font-size: 1rem;
   }
 }

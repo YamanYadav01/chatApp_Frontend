@@ -1,20 +1,91 @@
-.FormContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.FormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0f2ff, #f9f9f9); /* soft gradient bg */
+  padding: 20px; /* for small screens */
 }
-.auth{
-    width: 350px;
-    padding: 30px 40px;
-    background-color: #fff;
-    border: 2px solid black; 
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   border-radius: 15px;
+
+.auth {
+  width: 100%;
+  max-width: 380px;
+  padding: 30px 25px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* card shadow */
+  transition: transform 0.2s ease;
 }
-.goto{
-    font-size: 18px;
+
+.auth:hover {
+  transform: translateY(-4px); /* slight hover lift */
+}
+
+.auth input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+.auth input:focus {
+  border-color: #3b82f6; /* blue focus */
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.5);
+}
+
+.auth button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.auth button:hover {
+  background-color: #2563eb;
+}
+
+.goto {
+  font-size: 0.95rem;
+  margin-top: 15px;
+  color: #333;
+}
+
+.goto a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.goto a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Responsive */
+@media (max-width: 480px) {
+  .auth {
+    padding: 20px 18px;
+  }
+  .auth input,
+  .auth button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  .goto {
+    font-size: 0.85rem;
+  }
 }

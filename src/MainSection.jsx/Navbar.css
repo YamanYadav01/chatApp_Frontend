@@ -13,7 +13,7 @@
 .NavHead {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #1a1a1a;
 }
 
@@ -21,20 +21,20 @@
   flex-grow: 1;
   overflow-y: auto;
   margin-top: 10px;
-  scrollbar-width: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+.userlist::-webkit-scrollbar {
+  display: none; /* Chrome/Edge */
 }
 
 .user {
   display: flex;
   align-items: center;
-  padding: 12px 0;
+  padding: 12px 10px;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
-}
-
-.messageHeader {
-  display: flex;
-  align-items: center;
+  transition: background-color 0.2s ease;
 }
 
 .user:hover {
@@ -46,7 +46,7 @@
   height: 45px;
   border-radius: 50%;
   background-color: green;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .username {
@@ -54,22 +54,18 @@
   color: #333;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 5px 0;
-}
-
 .logout {
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 12px;
   cursor: pointer;
+  font-weight: 500;
+  color: #d9534f;
 }
 
-/* ✅ Responsive Breakpoints */
+/* ✅ Tablet (medium screen) */
 @media (max-width: 1024px) {
   .Nav {
-    width: 220px; /* smaller on tablets */
+    width: 240px;
     padding: 15px;
   }
   .username {
@@ -77,31 +73,45 @@ hr {
   }
 }
 
+/* ✅ Mobile (small screen) */
 @media (max-width: 768px) {
   .Nav {
     position: fixed;
-    left: -100%;              /* hidden by default */
+    left: -100%;              /* hide by default */
     top: 0;
-    width: 75%;               /* take most of screen */
-    max-width: 280px;
+    width: 75%;               /* cover most of screen */
+    max-width: 260px;
+    height: 100%;
+    background-color: #e0f0ff;
     z-index: 1000;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.25);
   }
+
   .Nav.active {
     left: 0;                  /* slide in when active */
   }
+
+  .NavHead {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .username {
+    font-size: 0.95rem;
+  }
 }
 
+/* ✅ Very Small (phones) */
 @media (max-width: 480px) {
   .Nav {
-    width: 100%;              /* full screen menu */
-    padding: 10px;
+    width: 100%;              /* fullscreen menu */
+    padding: 12px;
   }
   .circle {
     width: 40px;
     height: 40px;
   }
   .username {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }

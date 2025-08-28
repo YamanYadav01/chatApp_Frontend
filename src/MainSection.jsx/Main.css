@@ -1,15 +1,15 @@
 .main {
   display: flex;
-  flex-direction: row;  /* desktop view */
+  flex-direction: row;   /* default: side by side */
   height: 100vh;
   width: 100%;
+  overflow: hidden;      /* prevent double scroll */
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+/* Tablet & Mobile responsiveness */
+@media (max-width: 1024px) {
   .main {
-    flex-direction: column; /* stack items vertically on small screens */
-    position: relative;     /* avoid fixed issue */
-    height: auto; 
+    flex-direction: column;  /* stack sidebar + chat vertically */
+    height: auto;            /* auto height for scrolling */
   }
 }
