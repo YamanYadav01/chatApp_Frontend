@@ -1,15 +1,23 @@
 .main {
   display: flex;
-  flex-direction: row;   /* default: side by side */
+  flex-direction: row;   /* Sidebar + Chat side by side */
   height: 100vh;
   width: 100%;
   overflow: hidden;      /* prevent double scroll */
 }
 
-/* Tablet & Mobile responsiveness */
+/* Tablet (<=1024px) */
 @media (max-width: 1024px) {
   .main {
-    flex-direction: column;  /* stack sidebar + chat vertically */
-    height: auto;            /* auto height for scrolling */
+    flex-direction: row;   /* keep side by side */
+    height: 100vh;         /* still full height */
+  }
+}
+
+/* Mobile (<=768px) */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;  /* stack vertically ONLY for mobile */
+    height: auto;            /* let it scroll naturally */
   }
 }

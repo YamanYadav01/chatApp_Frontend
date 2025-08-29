@@ -1,26 +1,53 @@
-/* Chat Area Container */
-.chatArea {
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+.chatContainer {
   display: flex;
-  flex-direction: column;
-  height: 100vh;                  /* full height */
-  width: 100%;                    /* take full width */
-  max-width: 1200px;               /* center limit on big screens */
-  margin: auto;                    /* center horizontally */
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  overflow: hidden;                /* avoid double scroll */
+  height: 100vh;
+  width: 100%;
+  overflow: hidden; /* no double scroll */
 }
 
-/* Messages container */
-.chatMessages {
-  flex: 1;                         /* take all remaining height */
+/* Sidebar (Friends List) */
+.Nav {
+  width: 280px;
+  height: 100%;
+  background-color: #e0f0ff;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  overflow-y: auto;                 /* scroll only here */
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.NavHead {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+/* ===========================
+   CHAT AREA
+=========================== */
+.chatArea {
+  flex: 1;                        /* take remaining space */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Chat Messages */
+.chatMessages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
   background: #f9f9f9;
 }
 
-/* Chat Input container */
+/* Chat Input */
 .chatInput {
   display: flex;
   align-items: center;
@@ -28,12 +55,11 @@
   padding: 12px;
   border-top: 1px solid #ccc;
   background: #fff;
-  position: sticky;                /* sticks to bottom */
+  position: sticky;
   bottom: 0;
   z-index: 10;
 }
 
-/* Input field */
 .chatfield {
   flex: 1;
   border: 1px solid #ccc;
@@ -43,11 +69,10 @@
   outline: none;
 }
 
-/* Send button */
 .sendBtn {
   font-size: 1.3rem;
   cursor: pointer;
-  background: #3b82f6;             /* Tailwind blue */
+  background: #3b82f6;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -60,15 +85,51 @@
 }
 
 .sendBtn:hover {
-  background: #2563eb;             /* darker blue */
+  background: #2563eb;
 }
 
-/* Responsive */
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+/* 📱 Tablet (<= 1024px) */
+@media (max-width: 1024px) {
+  .Nav {
+    width: 220px;
+    padding: 15px;
+  }
+
+  .chatMessages {
+    padding: 15px;
+  }
+}
+
+/* 📱 Mobile (<= 768px) */
 @media (max-width: 768px) {
+  .chatContainer {
+    flex-direction: column;   /* stack vertically */
+  }
+
+  .Nav {
+    position: fixed;
+    top: 0;
+    left: -100%;             /* hidden by default */
+    width: 75%;
+    max-width: 260px;
+    height: 100%;
+    z-index: 1000;
+    background-color: #e0f0ff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.25);
+    transition: left 0.3s ease-in-out;
+  }
+
+  .Nav.active {
+    left: 0;                 /* slide in */
+  }
+
   .chatArea {
-    width: 100%;                  /* full screen width */
-    border-radius: 0;             /* remove rounded edges for mobile */
-    box-shadow: none;
+    flex: 1;
+    width: 100%;
   }
 
   .chatMessages {
@@ -76,14 +137,25 @@
   }
 
   .sendBtn {
-    font-size: 1.1rem;
     width: 38px;
     height: 38px;
+    font-size: 1.1rem;
   }
 }
 
-@media (min-width: 1024px) {
-  .chatArea {
-    width: 70vw;                  /* centered smaller width on desktops */
+/* 📱 Small Phones (<= 480px) */
+@media (max-width: 480px) {
+  .Nav {
+    width: 100%;             /* full screen menu */
+    padding: 12px;
+  }
+
+  .chatMessages {
+    padding: 10px;
+  }
+
+  .chatfield {
+    font-size: 0.9rem;
+    padding: 8px;
   }
 }
