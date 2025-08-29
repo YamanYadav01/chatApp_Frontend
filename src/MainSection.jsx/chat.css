@@ -1,89 +1,26 @@
-/* Chat Area Container */
-.chatArea {
-  display: flex;
+.chatArea{
+    height: 80vh;
+    width: 80vw;
+     display: flex;
   flex-direction: column;
-  height: 100vh;                  /* full height */
-  width: 100%;                    /* take full width */
-  max-width: 1200px;               /* center limit on big screens */
-  margin: auto;                    /* center horizontally */
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  overflow: hidden;                /* avoid double scroll */
+   padding: 30px 5%;
+    /* background-color:red; */
+    gap: 20px;
+    position: relative;
+    overflow-y: auto;
 }
-
-/* Messages container */
-.chatMessages {
-  flex: 1;                         /* take all remaining height */
-  padding: 20px;
-  overflow-y: auto;                 /* scroll only here */
-  background: #f9f9f9;
+.chatfield{
+    margin-left: 20px;
+    position: absolute;
+    border-color: aqua;
+    border: 2px solid black; 
+    width: 300px;
+    bottom: 20px;    
 }
-
-/* Chat Input container */
-.chatInput {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  border-top: 1px solid #ccc;
-  background: #fff;
-  position: sticky;                /* sticks to bottom */
-  bottom: 0;
-  z-index: 10;
-}
-
-/* Input field */
-.chatfield {
-  flex: 1;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 1rem;
-  outline: none;
-}
-
-/* Send button */
-.sendBtn {
-  font-size: 1.3rem;
-  cursor: pointer;
-  background: #3b82f6;             /* Tailwind blue */
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
-}
-
-.sendBtn:hover {
-  background: #2563eb;             /* darker blue */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .chatArea {
-    width: 100%;                  /* full screen width */
-    border-radius: 0;             /* remove rounded edges for mobile */
-    box-shadow: none;
-  }
-
-  .chatMessages {
-    padding: 12px;
-  }
-
-  .sendBtn {
-    font-size: 1.1rem;
-    width: 38px;
-    height: 38px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .chatArea {
-    width: 70vw;                  /* centered smaller width on desktops */
-  }
+.sendBtn{
+    bottom: 20px; 
+    font-size: 50px;
+    position: absolute; 
+    margin-left: 62%;
+    cursor: pointer;
 }
