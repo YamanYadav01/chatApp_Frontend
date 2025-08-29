@@ -1,6 +1,5 @@
 import React from 'react'
-// import './Navbar.css'
-import '../App.css'
+import './Navbar.css'
 import Logout from './Logout'
 import axios from 'axios'
 import { useEffect,useState } from 'react'

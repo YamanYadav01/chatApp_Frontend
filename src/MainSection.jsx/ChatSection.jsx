@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import { AiOutlineSend } from "react-icons/ai";
-// import './App.css'
-import '../App.css'
+import './chat.css'
 import Message from '../Chat/Message';
 import socket from '../socket'
 import axios from 'axios'
