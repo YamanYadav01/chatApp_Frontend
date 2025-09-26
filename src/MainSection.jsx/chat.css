@@ -37,11 +37,10 @@
   }
 
   .chatfield { 
-    width: 55vw  !important;     
+    width: 50%  !important;     
     font-size: 12px;
     padding: 10px;
     border-radius: 10px;
-    margin-right: 5px;
   }
 
   .sendBtn {
