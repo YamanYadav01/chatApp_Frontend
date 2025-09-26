@@ -63,3 +63,28 @@ hr {
   padding-top: 10px;
   cursor: pointer;
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .Nav {
+    width: 200px;       /* width chhoti kar di */
+    padding: 10px;
+  }
+
+  .NavHead {
+    font-size: 18px;
+  }
+
+  .circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .username {
+    font-size: 0.9rem;
+  }
+
+  .user {
+    padding: 8px 0;
+  }
+}
