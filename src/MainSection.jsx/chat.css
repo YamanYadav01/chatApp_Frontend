@@ -24,3 +24,22 @@
     margin-left: 62%;
     cursor: pointer;
 }
+
+/* -------- Mobile Responsive -------- */
+@media (max-width: 600px) {
+  .chatArea {
+    width: 100vw;   /* pura screen cover kare */
+    padding: 15px 3%; /* kam padding */
+  }
+
+  .chatfield {
+    width: 30%;      /* input chhoti screen me adjust ho */
+    /* margin-left: 10px; */
+    font-size: 14px; /* text size thoda chhota */
+  }
+
+  .sendBtn {
+    font-size: 25px; /* button thoda chhota */
+    margin-left: 75%; /* right side me set kare */
+  }
+}
