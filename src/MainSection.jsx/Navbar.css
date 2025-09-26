@@ -1,5 +1,5 @@
 .Nav {
-  width: 300px;
+  width: 20vw;
   height: 100vh;
    background-color: #e0f0ff;
   border-right: 1px solid #ccc;
@@ -65,7 +65,7 @@ hr {
 }
 
 /* Default (Desktop) */
-.Nav {
+/* .Nav {
   width: 300px;
   height: 100vh;
   background-color: #e0f0ff;
@@ -74,7 +74,7 @@ hr {
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
-}
+} */
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
