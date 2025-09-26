@@ -27,19 +27,24 @@
 
 /* -------- Mobile Responsive -------- */
 @media (max-width: 600px) {
+  .inputArea{
+    width: 40%;
+    margin-left: 10px;
+  }
   .chatArea {
-    width: 100vw;   /* pura screen cover kare */
+    width: 80vw;   /* pura screen cover kare */
     padding: 15px 3%; /* kam padding */
   }
 
-  .chatfield {
-    width: 30%;      /* input chhoti screen me adjust ho */
-    /* margin-left: 10px; */
-    font-size: 14px; /* text size thoda chhota */
+  .chatfield { 
+    width: 55vw  !important;     
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 5px;
   }
 
   .sendBtn {
-    font-size: 25px; /* button thoda chhota */
-    margin-left: 75%; /* right side me set kare */
+    font-size: 2rem; /* button thoda chhota */
   }
 }
