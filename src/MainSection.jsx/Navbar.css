@@ -79,7 +79,7 @@ hr {
 /* Mobile Responsive */
 @media (max-width: 600px) {
   .Nav {
-    width: 40vw;       /* width chhoti kar di */
+    width: 30vw;       /* width chhoti kar di */
     padding: 10px;
   }
 
