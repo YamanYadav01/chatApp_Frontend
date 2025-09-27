@@ -28,7 +28,7 @@
 /* -------- Mobile Responsive -------- */
 @media (max-width: 600px) {
   .inputArea{
-    width: 40%;
+    width: 50%;
     margin-left: 10px;
   }
   .chatArea {
