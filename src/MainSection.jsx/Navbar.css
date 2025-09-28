@@ -1,12 +1,13 @@
 .Nav {
   width: 20vw;
   height: 100vh;
-   background-color: #e0f0ff;
+  background-color: #e0f0ff;
   border-right: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 .NavHead {
@@ -20,7 +21,7 @@
   flex-grow: 1;
   overflow-y: auto;
   margin-top: 10px;
-  scrollbar-width: none;
+  scrollbar-width: none; /* hide scrollbar (Firefox) */
 }
 
 .user {
@@ -28,12 +29,14 @@
   align-items: center;
   padding: 12px 0;
   cursor: pointer;
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
 }
-.messageHeader{
-   display: flex;
-    align-items: center;
+
+.messageHeader {
+  display: flex;
+  align-items: center;
 }
+
 .user:hover {
   background-color: #f0f0f0;
 }
@@ -47,9 +50,8 @@
 }
 
 .username {
-  font-size: 16px;
-  color: #333;
   font-size: 1.2rem;
+  color: #333;
 }
 
 hr {
@@ -64,23 +66,38 @@ hr {
   cursor: pointer;
 }
 
-/* Default (Desktop) */
-/* .Nav {
-  width: 300px;
-  height: 100vh;
-  background-color: #e0f0ff;
-  border-right: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  box-sizing: border-box;
-} */
+/* ---------- Tablet (max 900px) ---------- */
+@media (max-width: 900px) {
+  .Nav {
+    width: 25vw;
+    padding: 15px;
+  }
 
-/* Mobile Responsive */
+  .circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .username {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Mobile (max 600px) ---------- */
 @media (max-width: 600px) {
   .Nav {
-    width: 30vw;       /* width chhoti kar di */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 70vw;         /* take more width on mobile */
+    height: 100vh;
     padding: 10px;
+    transform: translateX(-100%); /* hidden by default */
+    z-index: 1000;
+  }
+
+  .Nav.active {
+    transform: translateX(0); /* show when active */
   }
 
   .NavHead {
@@ -88,8 +105,8 @@ hr {
   }
 
   .circle {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
   }
 
   .username {
