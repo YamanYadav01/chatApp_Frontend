@@ -31,19 +31,27 @@
     width: 50%;
     margin-left: 10px;
   }
-  .chatArea {
-    width: 80vw;   /* pura screen cover kare */
-    padding: 15px 3%; /* kam padding */
+ .chatArea {
+    width: 100vw;   /* full screen */
+    padding: 10px 5px; /* small padding */
   }
 
-  .chatfield { 
-    width: 50%  !important;     
-    font-size: 12px;
-    padding: 10px;
+   .chatfield { 
+    position: fixed; /* keep it at bottom */
+    bottom: 10px;
+    left: 5%;        /* center with padding */
+    width: 70%;      /* fit mobile screen nicely */
+    font-size: 14px;
+    padding: 8px 10px;
     border-radius: 10px;
+    margin-left: 0;  /* remove old margin */
   }
 
   .sendBtn {
-    font-size: 2rem; /* button thoda chhota */
+    position: fixed;
+    bottom: 10px;
+    left: 80%;       /* next to input */
+    font-size: 2rem;
+    margin-left: 0;  /* remove old margin */
   }
 }
