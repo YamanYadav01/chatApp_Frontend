@@ -1,11 +1,60 @@
-.chatHeader{
-    position: sticky;
+.chatHeader {
+  width: 100vw;   /* full viewport */
   top: 0;
-  background-color: white; /* or any background to avoid transparency issues */
-  z-index: 10;
-  /* padding: 16px; */
-  font-size: 1.2rem;
+  left: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
   font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    /* position: sticky; */
+  font-size: 1rem;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Avatar */
+.chatHeader .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: green;
+  flex-shrink: 0; /* avatar fix rahe */
+}
+
+/* Username */
+.chatHeader .username {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* ek hi line me truncate ho */
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .chatHeader {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+  .chatHeader .avatar {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .chatHeader {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    gap: 6px;
+  }
+  .chatHeader .avatar {
+    width: 28px;
+    height: 28px;
+  }
 }
