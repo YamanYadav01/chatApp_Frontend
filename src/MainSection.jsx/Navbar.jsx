@@ -11,7 +11,7 @@ function Navbar({onSelectedFriend,IsOpen}) {
     const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
     useEffect(()=>{
-       axios.get(`http://localhost:8000/user/contactlist`)
+       axios.get(`${API_URL}/user/contactlist`)
        .then((res)=>{
            setContactList(res.data.ContactData);
         })
