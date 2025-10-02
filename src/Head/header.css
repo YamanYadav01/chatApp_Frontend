@@ -3,8 +3,6 @@
   top: 0;
   left: 0;
   position: sticky;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -34,6 +32,10 @@
   white-space: nowrap; /* ek hi line me truncate ho */
 }
 
+.manubar {
+  display: none;
+}
+
 /* Tablet */
 @media (max-width: 900px) {
   .chatHeader {
@@ -44,17 +46,28 @@
     width: 35px;
     height: 35px;
   }
+  .manubar {
+  display: none;
+}
 }
 
 /* Mobile */
 @media (max-width: 600px) {
+   .manubar {
+    display: block; 
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 8px;
+    gap: 15px;
+  }
+
   .chatHeader {
     font-size: 0.9rem;
-    padding: 5px 8px;
-    gap: 6px;
+
   }
   .chatHeader .avatar {
     width: 28px;
     height: 28px;
   }
+  
 }
