@@ -62,7 +62,7 @@ hr {
 
 .logout {
   margin-top: auto;
-  padding-top: 10px;
+  padding-bottom: 20px;
   cursor: pointer;
 }
 
@@ -81,39 +81,29 @@ hr {
   .username {
     font-size: 1rem;
   }
+  
 }
 
 /* ---------- Mobile (max 600px) ---------- */
-@media (max-width: 600px) {
+/* -------------------- Responsive -------------------- */
+
+/* For small screens: hide sidebar by default */
+@media (max-width: 768px) {
   .Nav {
+    transform: translateX(-100%);
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 70vw;         /* take more width on mobile */
-    height: 100vh;
-    padding: 10px;
-    transform: translateX(-100%); /* hidden by default */
-    z-index: 1000;
+    width: 50vw;
+    z-index: 1;
+    margin-top: 25px;
   }
 
+  /* When active (open) */
   .Nav.active {
-    transform: translateX(0); /* show when active */
+    transform: translateX(0);
   }
-
-  .NavHead {
-    font-size: 18px;
-  }
-
-  .circle {
-    width: 32px;
-    height: 32px;
-  }
-
-  .username {
-    font-size: 0.9rem;
-  }
-
-  .user {
-    padding: 8px 0;
-  }
+  .logout {
+  margin-top: 70%;
+  padding-top: 5px;
+  cursor: pointer;
+}
 }
