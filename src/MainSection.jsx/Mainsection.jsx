@@ -8,19 +8,20 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 function Mainsection() {
   const [selectedFriend, setSelectedFriend] = useState();
+  const [isOpen, setisOpen] = useState(false);
   const Navigate = useNavigate();
-  const userdata = localStorage.getItem("usermail")|| "";
+  // const userdata = localStorage.getItem("usermail")|| "";
  
   useEffect(()=>{
-    if(userdata==""){
-       Navigate("/signin")
-    }
+    // if(userdata==""){
+    //    Navigate("/signin")
+    // }
   })
   return (
     <div className='main'>
-      <Navbar onSelectedFriend={setSelectedFriend} ></Navbar>
+      <Navbar onSelectedFriend={setSelectedFriend} IsOpen={isOpen}></Navbar>
       <div>
-      <Header selectedFriend={selectedFriend}></Header>
+      <Header selectedFriend={selectedFriend} IsOpen={setisOpen} isOpen={isOpen}></Header>
       <ChatSection selectedFriend={selectedFriend}></ChatSection>
       </div>
     </div>
