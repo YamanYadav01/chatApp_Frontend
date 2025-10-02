@@ -49,8 +49,8 @@
 
   .sendBtn {
     position: fixed;
-    bottom: 10px;
-    left: 80%;       /* next to input */
+    bottom: 15px;
+    left: 70%;       /* next to input */
     font-size: 2rem;
     margin-left: 0;  /* remove old margin */
   }
