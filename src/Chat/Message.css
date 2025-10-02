@@ -1,21 +1,42 @@
 .chat-bubble {
   padding: 10px;
   border-radius: 1rem;
-  max-width: 30%;
+  max-width: 25%;   /* wider on small screens */
   word-break: break-word;
   margin-bottom: 8px;
   color: white;
+  font-size: 0.95rem;
 }
 
-.sender{
+/* Sender message (right aligned) */
+.sender {
   background-color: #4b5563; /* Tailwind gray-600 */
   color: white;
   margin-left: auto;
- 
+  text-align: left;
 }
 
+/* Receiver message (left aligned) */
 .receiver {
-  background-color: #3b82f6; /* Tailwind blue-500 */
   background-color: #e5e7eb; /* light gray */
   color: black;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {   /* tablets */
+  .chat-bubble {
+    max-width: 40%;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {   /* mobiles */
+  .chat-bubble {
+    max-width: 40%;
+    font-size: 0.85rem;
+    padding: 8px;
+    z-index: -1;
+  }
 }
