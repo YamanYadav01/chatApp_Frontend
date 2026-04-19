@@ -4,3 +4,5 @@ const socket = io("https://chatapp-backend-2-s1pn.onrender.com", {
   transports: ["polling", "websocket"]
   // ❌ withCredentials: true REMOVE karo
 });
+
+export default soket;
