@@ -5,4 +5,4 @@ const socket = io("https://chatapp-backend-2-s1pn.onrender.com", {
   // ❌ withCredentials: true REMOVE karo
 });
 
-export default soket;
+export default socket;
