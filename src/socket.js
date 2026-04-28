@@ -1,9 +1,10 @@
 import { io } from "socket.io-client";
 
-const socket = io(
-    origin: "https://chat-app-frontend-bice-seven.vercel.app",
-    methods: ["GET", "POST"],
-    credentials: true
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+const socket = io(API_URL, {
+  withCredentials: true,
+  transports: ["websocket"] // optional but recommended
 });
 
-export default socket; 
+export default socket;
