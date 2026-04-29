@@ -9,7 +9,7 @@ import { ToastContainer,toast } from 'react-toastify';
 function SignIn() {
   const Navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const notify = (message,navPath) => {
     toast(message);
     Navigate(navPath);
@@ -34,23 +34,28 @@ function SignIn() {
       password:formData.password
      }
 
-     axios.post(`${API_URL}/user/signin`, userData, {
-      withCredentials: true
-    })    
-    .then(res => {
-      if(res.data){
-        // set data in localStorage
-        localStorage.setItem("usermail",JSON.stringify(res.data.email));
-        localStorage.setItem("userId",JSON.stringify(res.data.id));
-        notify(res.data.msg,'/chat');
+  axios.post(`${API_URL}/user/signin`, userData, {
+  withCredentials: true
+})
+.then(res => {
+  console.log("res:", res);
 
+  if (res.data) {
+    // store user data
+    localStorage.setItem("usermail", JSON.stringify(res.data.email));
+    localStorage.setItem("userId", JSON.stringify(res.data.id));
 
-      }
+    notify(res.data.msg, '/chat'); // success + redirect
+  }
+})
+.catch(err => {
+  console.log("error:", err);
 
-    })
-    .catch(err => {
-      alert("Sign-in error:", err.message);
-    });
+  // ✅ correct error message
+  const message = err.response?.data?.msg || "Login failed";
+
+  alert(message); // or use notify(message)
+});
   }
   return (
     <>

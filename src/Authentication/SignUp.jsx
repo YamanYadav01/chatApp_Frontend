@@ -11,7 +11,7 @@ function SignUp() {
     const [message, setMessage] = useState("");
     const Navigate = useNavigate();
     const notify = (message) => toast(message);
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
   const [formData, setFormData] = useState({
     email:"",
@@ -35,21 +35,37 @@ function SignUp() {
       password:formData.password
      }
 
-   axios.post(`${API_URL}/user/signup`,userData,{
-    withCredentials: true,
-    headers: {
-      'Content-Type': 'application/json'
-    }
-   })
-   .then(res=>{
-    if(res.data.message){
-      // alert(res.data.message);
-      setMessage(res.data.message);
-      notify();
-      Navigate('/signin')
-    }
-  
-   })
+   axios.post(`${API_URL}/user/signup`, userData, {
+  withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(res => {
+  console.log("res :", res);
+
+  notify();              // success toast
+  Navigate('/signin');   // redirect
+
+})
+.catch(err => {
+  console.log("Full error:", err);
+
+  if (err.response) {
+    // ✅ this is your backend message
+    console.log("Backend msg:", err.response.data);
+    alert( err.response.data.msg)
+
+    setMessage(err.response.data.msg); // show "User already exists"
+    notify(); // show toast
+  } else if (err.request) {
+    setMessage("No response from server");
+    notify();
+  } else {
+    setMessage("Error: " + err.message);
+    notify();
+  }
+});
   }
   return (
     <>

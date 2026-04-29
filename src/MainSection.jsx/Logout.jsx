@@ -10,7 +10,7 @@ function Logout() {
  const Navigate = useNavigate();
 const handleClick = () => {
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const notify = (message)=>toast(message);
   axios.get(`${API_URL}/user/logout`, { withCredentials: true }) // important if cookie is HttpOnly
     .then((res) => {

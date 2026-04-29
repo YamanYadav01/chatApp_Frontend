@@ -8,7 +8,7 @@ function Navbar({onSelectedFriend,IsOpen}) {
 
     const sidebar = document.querySelector(".active");
     
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
     useEffect(()=>{
        axios.get(`${API_URL}/user/contactlist`)

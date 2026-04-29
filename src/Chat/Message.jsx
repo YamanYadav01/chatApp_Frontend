@@ -7,7 +7,7 @@ function Message({selectedFriend}) {
   const [chats, setChats] = useState(["no chats yet"]);
   const senderId = JSON.parse(localStorage.getItem("userId")|| "");
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   // Listen for incoming messages (real-time)
   useEffect(() => {
     const handleMessage = (msg) => {
