@@ -11,9 +11,10 @@ import { useState } from 'react';
 function Logout() {
  const Navigate = useNavigate();
   const [contactList, setContactList] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  
 const handleClick = () => {
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const notify = (message)=>toast(message);
   axios.get(`${API_URL}/user/logout`, { withCredentials: true }) // important if cookie is HttpOnly
     .then((res) => {
