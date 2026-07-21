@@ -4,8 +4,9 @@ import axios from 'axios';
 import cookie from 'js-cookie'
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-import { useEffect,useState } from 'react';
+import { useEffect } from 'react';
 import { ToastContainer,toast } from 'react-toastify';
+import { useState } from 'react';
 
 function Logout() {
  const Navigate = useNavigate();
