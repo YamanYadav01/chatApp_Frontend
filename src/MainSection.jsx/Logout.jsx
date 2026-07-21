@@ -15,7 +15,6 @@ function Logout() {
   const senderId = JSON.parse(localStorage.getItem("userId")|| "");
 
 const handleClick = () => {
-
   const notify = (message)=>toast(message);
   axios.get(`${API_URL}/user/logout`, { withCredentials: true }) // important if cookie is HttpOnly
     .then((res) => {
