@@ -9,6 +9,7 @@ import { ToastContainer,toast } from 'react-toastify';
 
 function Logout() {
  const Navigate = useNavigate();
+  const [contactList, setContactList] = useState([]);
 const handleClick = () => {
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
