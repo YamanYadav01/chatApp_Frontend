@@ -12,7 +12,8 @@ function Logout() {
  const Navigate = useNavigate();
   const [contactList, setContactList] = useState([]);
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-  
+  const senderId = JSON.parse(localStorage.getItem("userId")|| "");
+
 const handleClick = () => {
 
   const notify = (message)=>toast(message);
