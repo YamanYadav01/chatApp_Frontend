@@ -6,7 +6,7 @@ import './header.css'
 import { useNavigate } from 'react-router-dom';
 import { TbLogout2 } from "react-icons/tb";
 
-function Header({selectedFriend,IsOpen,isOpen}) {
+function Header({selectedFriend,IsOpen,isOpen, selectedGroup}) {
 
   const Navigate = useNavigate();
 
@@ -32,15 +32,30 @@ function Header({selectedFriend,IsOpen,isOpen}) {
         <Container>
           <Nav className="me-auto">
           <div className='chatUser'>
-          {selectedFriend ? (
-                <div className='messageHeader'>
-                     <span className='manubar' onClick={handleClick}>☰</span>&nbsp;
-                    <div className='circle'></div><span className='username' id={selectedFriend._id}>{selectedFriend.username}</span>
-                </div>)
-               :(
-        <h2><span className='manubar"' onClick={handleClick}>☰</span>&nbsp;Select a friend to start chatting</h2>
-      )
-          }
+            {
+              selectedGroup ? (
+                <div className="messageHeader">
+                  <div className="circle"></div>
+                  <span className="username" id={selectedGroup._id}>
+                    {selectedGroup.groupname}
+                  </span>
+                </div>
+              ) : selectedFriend ? (
+                <div className="messageHeader">
+                  <div className="circle"></div>
+                  <span className="username" id={selectedFriend._id}>
+                    {selectedFriend.username}
+                  </span>
+                </div>
+              ) : (
+                <h2>
+                  <span className="manubar" onClick={handleClick}>
+                    ☰
+                  </span>
+                  &nbsp;Select a friend to start chatting
+                </h2>
+              )
+            }
           </div>
           </Nav>
         </Container>

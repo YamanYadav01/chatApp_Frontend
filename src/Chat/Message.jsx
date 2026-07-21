@@ -3,7 +3,7 @@ import axios from 'axios'
 import socket from '../socket'
 import './Message.css'
 
-function Message({selectedFriend}) {
+function Message({selectedFriend,selectedGroup}) {
   const [chats, setChats] = useState(["no chats yet"]);
   const senderId = JSON.parse(localStorage.getItem("userId")|| "");
 
@@ -58,15 +58,47 @@ function Message({selectedFriend}) {
     }
 }, [selectedFriend,senderId]); // Add these dependencies if they change
 
+
+// Group Messages
+useEffect(() => {
+  const fetchGroupConversation = async () => {
+    try {
+    console.log("Kya grp fetch call hua?")
+    const res = await axios.get(`${API_URL}/user/groupconverstation/${selectedGroup}`);
+    console.log("chat data: ",res.data.data)
+    setChats(res.data.data[0]);
+    
+    // setChats(prevChats => [...prevChats, res.data.conversations]);
+
+
+  } catch (error) {
+    alert("Failed to fetch conversation:", error);
+  }
+};
+
+if (selectedGroup) {
+    fetchGroupConversation();
+  }
+}, [selectedGroup]); // Add these dependencies if they change
+
+
   return (
-       <div>
+         <div>
         <div className='message'>
-          {chats && chats.messageData && chats.messageData.map((chat, index) => (
+          {selectedGroup?( chats && chats.messageData && chats.messageData.map((chat, index) => (
             <div key={index} className={`chat-bubble ${chat.sender === senderId ? 'sender' : 'receiver'}`}>
-              <span style={{fontSize:"15px"}}>{new Date(chat.createDate).toLocaleTimeString()}</span>
-              <p>{chat.message}</p>
+           <div className='headname'><span> &nbsp;&nbsp;{chat.sender != senderId ?chat.username:""}</span> <span style={{fontSize:"15px"}}>{new Date(chat.createDate).toLocaleTimeString()}</span></div> 
+              <p className='msg'>{chat.message}</p>
+            </div>))):
+         selectedFriend?
+          (chats && chats.messageData && chats.messageData.map((chat, index) => (
+            <div key={index} className={`chat-bubble ${chat.sender === senderId ? 'sender' : 'receiver'}`}>
+            <span style={{fontSize:"15px"}}>{new Date(chat.createDate).toLocaleTimeString()}</span>
+              <p className='msg'>{chat.message}</p>
             </div>
-          ))}
+         ))
+  ) : (<div></div>)
+}
         </div>
       </div>
 

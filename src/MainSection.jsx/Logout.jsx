@@ -27,12 +27,30 @@ const handleClick = () => {
     });
 };
 
+ useEffect(()=>{
+
+      axios.get(`${API_URL}/user/contactlist`)
+          .then((res)=>{
+              setContactList(res.data.ContactData);
+            })
+    },[])
+    console.log("Log contect list: ", contactList)
+      const LoggedUser = contactList.find(
+  (data) => data._id === senderId
+);
+      console.log("Log user: ", LoggedUser)
+
   return (
-    <div>
+   <div>
         <ToastContainer />
      <div className="logout-container" onClick={handleClick}>
        { <TbLogout2 />}
         <span className="logout-icons">&nbsp;Logout</span>
+        <div  style={{
+    color: "black",
+    fontSize: "20px",
+    fontWeight: "bold"
+  }}>{LoggedUser?.username}</div>
       </div>
     </div>
   )

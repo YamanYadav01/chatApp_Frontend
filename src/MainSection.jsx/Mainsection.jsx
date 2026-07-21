@@ -5,9 +5,11 @@ import Header from '../Head/Header'
 import ChatSection from './ChatSection'
 import './Main.css'
 import { useEffect } from 'react'
+import GroupchatModal from '../GroupChat/GroupchatModal.jsx'
 import { useNavigate } from 'react-router-dom'
 function Mainsection() {
   const [selectedFriend, setSelectedFriend] = useState();
+  const [selectedGroup, setSelectedGroup] = useState();
   const [isOpen, setisOpen] = useState(false);
   const Navigate = useNavigate();
   // const userdata = localStorage.getItem("usermail")|| "";
@@ -19,10 +21,13 @@ function Mainsection() {
   })
   return (
     <div className='main'>
-      <Navbar onSelectedFriend={setSelectedFriend} IsOpen={isOpen}></Navbar>
+      <Navbar onSelectedFriend={setSelectedFriend} setSelectedGroup={setSelectedGroup} IsOpen={isOpen}></Navbar>
       <div>
-      <Header selectedFriend={selectedFriend} IsOpen={setisOpen} isOpen={isOpen}></Header>
-      <ChatSection selectedFriend={selectedFriend}></ChatSection>
+      <Header selectedFriend={selectedFriend} selectedGroup={selectedGroup} IsOpen={setisOpen} isOpen={isOpen}></Header>
+      <ChatSection selectedFriend={selectedFriend} selectedGroup={selectedGroup}>
+
+      </ChatSection>
+      <GroupchatModal></GroupchatModal>
       </div>
     </div>
   )
